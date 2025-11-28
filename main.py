@@ -10,4 +10,4 @@ def main():
     return get_book_text("books/frankenstein.txt")
 
 
-main()
+print(main())
