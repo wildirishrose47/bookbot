@@ -10,4 +10,7 @@ def main():
     return get_book_text("books/frankenstein.txt")
 
 
-print(main())
+num_words = len(main().split())
+
+
+print(f"Found {num_words} total words")
