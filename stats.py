@@ -1,10 +1,19 @@
+import sys
+
+if len(sys.argv) == 2:
+    book = sys.argv[1]
+else:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
+
+
 def get_book_text(filepath):
     with open(filepath) as f:
         return f.read()
 
 
 def main():
-    return get_book_text("books/frankenstein.txt")
+    return get_book_text(book)
 
 
 def get_num_words():
@@ -28,4 +37,21 @@ def get_num_characters():
     return num_chars
 
 
-print(get_num_characters())
+# print(get_num_characters())
+
+
+def sort_on(items):
+    return items["num"]
+
+
+def sorted_chars():
+    unsorted = get_num_characters()
+    unsorted_list = []
+    for char in unsorted:
+        num = unsorted[char]
+        temp_dict = {"char": char, "num": num}
+        if char.isalpha():
+            unsorted_list.append(temp_dict)
+
+    unsorted_list.sort(key=sort_on, reverse=True)
+    return unsorted_list
